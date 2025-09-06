@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] int playerSpeed = 10;
     [SerializeField] int jumpForce = 20;
     InputSystem inputSystem;
-    Rigidbody2D rigidbody;
+    new Rigidbody2D rigidbody;
     SpriteRenderer spriteRenderer;
     Animator animator;
     float movementDirectionX;
