@@ -50,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         isGrounded = true;
         Events.OnPlayerDetected += StopGame;
-        Events.OnAnnounceUpdate?.Invoke("You have to find 0/3 keys");
     }
 
     // Update is called once per frame
@@ -93,5 +92,10 @@ public class PlayerMovement : MonoBehaviour
     {
         Time.timeScale = 0;
         Debug.Log("Game stopped, detected by " + detector);
+    }
+
+    private void OnDestroy()
+    {
+        Events.OnPlayerDetected -= StopGame;
     }
 }

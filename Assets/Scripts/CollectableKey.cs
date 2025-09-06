@@ -7,7 +7,7 @@ public class CollectableKey : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             Events.OnKeyCollected?.Invoke();
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }
