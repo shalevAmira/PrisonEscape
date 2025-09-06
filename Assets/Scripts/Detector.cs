@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Detector : MonoBehaviour
 {
+    [SerializeField] string detectorName = "Guard";
+
     void Start()
     {
         
@@ -16,7 +18,7 @@ public class Detector : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            Events.OnPlayerDetected?.Invoke(1);
+            Events.OnPlayerDetected?.Invoke(detectorName);
         }
     }
 }
