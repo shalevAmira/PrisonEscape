@@ -9,6 +9,7 @@ sysinfo.txt
 .idea/
 .vs/
 .vscode/
+.plastic/
 *.csproj
 *.unityproj
 *.sln
