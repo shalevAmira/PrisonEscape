@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -24,6 +25,14 @@ public class PlayerMovement : MonoBehaviour
         inputSystem.Player.Move.performed += OnMovePerformed;
         inputSystem.Player.Move.canceled += OnMoveCanceled;
         inputSystem.Player.Jump.started += OnJumpStarted;
+        inputSystem.Player.Restart.performed += OnRestart;
+    }
+
+    private void OnRestart(InputAction.CallbackContext context)
+    {
+        Debug.Log("Restarting!");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
     }
 
     private void OnJumpStarted(InputAction.CallbackContext context)
@@ -91,7 +100,6 @@ public class PlayerMovement : MonoBehaviour
     void StopGame(string detector)
     {
         Time.timeScale = 0;
-        Debug.Log("Game stopped, detected by " + detector);
     }
 
     private void OnDestroy()

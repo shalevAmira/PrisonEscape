@@ -9,6 +9,9 @@ public class Detector : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             Events.OnPlayerDetected?.Invoke(detectorName);
+            Events.AnnounceUpdateWithColor?.Invoke(
+                $"You have been cought by {detectorName}! Hold R to restart.", Color.red
+            );
         }
     }
 }

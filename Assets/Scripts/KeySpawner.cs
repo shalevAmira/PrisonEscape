@@ -17,18 +17,19 @@ public class KeySpawner : MonoBehaviour
             Instantiate(keyPrefab, spawnPoint.position, Quaternion.identity);
         }
         Events.OnKeyCollected += KeyCollected;
-        Events.OnAnnounceUpdate?.Invoke(GetKeyAmountText());
+        Events.AnnounceUpdate?.Invoke(GetKeyAmountText());
     }
+
     private void KeyCollected()
     {
         keysCollected++;
         if (keysCollected < possibleSpawnPoints.Count)
         {    
-            Events.OnAnnounceUpdate?.Invoke(GetKeyAmountText());
+            Events.AnnounceUpdate?.Invoke(GetKeyAmountText());
         }
         else
         {
-            Events.OnAnnounceUpdateWithColor?.Invoke("You collected all the keys! you can now escape!", Color.green);
+            Events.AnnounceUpdateWithColor?.Invoke("You collected all the keys! you can now escape!", Color.green);
         }
     }
 
@@ -41,5 +42,4 @@ public class KeySpawner : MonoBehaviour
     {
         Events.OnKeyCollected -= KeyCollected;
     }
-
 }

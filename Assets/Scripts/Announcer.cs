@@ -8,8 +8,8 @@ public class Announcer : MonoBehaviour
     private void Awake()
     {
         announcementText = GetComponent<TextMeshProUGUI>();
-        Events.OnAnnounceUpdate += Announce;
-        Events.OnAnnounceUpdateWithColor += AnnounceWithColor;
+        Events.AnnounceUpdate += Announce;
+        Events.AnnounceUpdateWithColor += AnnounceWithColor;
     }
 
     private void Announce(string message)
@@ -26,7 +26,7 @@ public class Announcer : MonoBehaviour
 
     private void OnDestroy()
     {
-        Events.OnAnnounceUpdate -= Announce;
-        Events.OnAnnounceUpdateWithColor -= AnnounceWithColor;
+        Events.AnnounceUpdate -= Announce;
+        Events.AnnounceUpdateWithColor -= AnnounceWithColor;
     }
 }
