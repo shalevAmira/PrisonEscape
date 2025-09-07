@@ -7,11 +7,11 @@ public class KeySpawner : MonoBehaviour
 {
     [SerializeField] List<Transform> possibleSpawnPoints = new();
     [SerializeField] GameObject keyPrefab;
-    int keysCollected;
+    int keysCollected = 0;
 
     void Start()
     {
-        keysCollected = 0;
+       
         foreach (Transform spawnPoint in possibleSpawnPoints)
         {
             Instantiate(keyPrefab, spawnPoint.position, Quaternion.identity);
@@ -41,5 +41,15 @@ public class KeySpawner : MonoBehaviour
     private void OnDestroy()
     {
         Events.OnKeyCollected -= KeyCollected;
+    }
+
+    public int GetCollectedKeyCount()
+    {
+        return keysCollected;
+    }
+
+    public int GetTotalKeyCount()
+    {
+        return possibleSpawnPoints.Count;
     }
 }

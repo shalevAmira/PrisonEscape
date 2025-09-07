@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     Animator animator;
     float movementDirectionX;
     bool isGrounded;
+   float thresholdGGround = 0.5f;
 
     private void Awake()
     {
@@ -81,11 +82,26 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("speed", rigidbody.linearVelocityX);
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            isGrounded = true;
+            foreach (ContactPoint2D contact in other.contacts)
+            {
+                if (contact.normal.y > thresholdGGround) 
+                {
+                    isGrounded = true;
+                    break;
+                }
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
         }
     }
 
