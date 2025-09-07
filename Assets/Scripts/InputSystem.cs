@@ -256,7 +256,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""fdb13ab6-41b3-4596-b28a-405d063d21b0"",
                     ""path"": ""<Keyboard>/r"",
-                    ""interactions"": ""Hold(duration=2)"",
+                    ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Restart"",

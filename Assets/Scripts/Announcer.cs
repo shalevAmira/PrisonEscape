@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Announcer : MonoBehaviour
 {
+    Color defaultMessageColor = Color.white;
     TextMeshProUGUI announcementText;
     private void Awake()
     {
@@ -14,7 +15,7 @@ public class Announcer : MonoBehaviour
 
     private void Announce(string message)
     {
-        announcementText.color = Color.white;
+        announcementText.color = defaultMessageColor;
         announcementText.text = message;
     }
 
