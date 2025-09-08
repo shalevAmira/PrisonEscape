@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnRestart(InputAction.CallbackContext context)
     {
-        Debug.Log("Restarting!");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
     }

@@ -9,7 +9,7 @@ public enum DetectorType
 public class Detector : MonoBehaviour
 {
     [SerializeField] private DetectorType detectorType;
-
+    Color detectedAnnouncmentColor = Color.red;
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -17,7 +17,7 @@ public class Detector : MonoBehaviour
             string detectorName = detectorType.ToString(); 
             Events.OnPlayerDetected?.Invoke(detectorName);
             Events.AnnounceUpdateWithColor?.Invoke(
-                $"You have been caught by {detectorName}! Hold R to restart.", Color.red
+                $"You have been caught by {detectorName}! Hold R to restart.", detectedAnnouncmentColor
             );
         }
     }
