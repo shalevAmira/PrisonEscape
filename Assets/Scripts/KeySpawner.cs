@@ -7,6 +7,7 @@ public class KeySpawner : MonoBehaviour
 {
     [SerializeField] List<Transform> possibleSpawnPoints = new();
     [SerializeField] GameObject keyPrefab;
+    Color allKeysCollectedMessageColor = Color.green;
     int keysCollected = 0;
 
     void Start()
@@ -29,14 +30,14 @@ public class KeySpawner : MonoBehaviour
         }
         else
         {
+            Events.AnnounceUpdateWithColor?.Invoke("You collected all the keys! you can now escape!", allKeysCollectedMessageColor);
             Events.OpenDoor?.Invoke();
-            Events.AnnounceUpdateWithColor?.Invoke("You collected all the keys! you can now escape!", Color.green);
         }
     }
 
     string GetKeyAmountText()
     {
-        return $"You have to find {keysCollected}/{possibleSpawnPoints.Count}";
+        return $"You have to find {keysCollected}/{possibleSpawnPoints.Count} keys.";
     }
 
     private void OnDestroy()
