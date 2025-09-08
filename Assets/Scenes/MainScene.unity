@@ -6052,7 +6052,7 @@ PrefabInstance:
     - target: {fileID: 5096332403837077726, guid: 5a2c25067ca9de4488cc69359c3cfcb3, type: 3}
       propertyPath: 'possibleSpawnPoints.Array.data[3]'
       value: 
-      objectReference: {fileID: 1886941947}
+      objectReference: {fileID: 1471915402}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
