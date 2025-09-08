@@ -11,7 +11,7 @@ public class KeySpawner : MonoBehaviour
 
     void Start()
     {
-       
+         
         foreach (Transform spawnPoint in possibleSpawnPoints)
         {
             Instantiate(keyPrefab, spawnPoint.position, Quaternion.identity);

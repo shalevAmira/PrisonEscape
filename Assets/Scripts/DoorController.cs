@@ -12,15 +12,15 @@ public class DoorController : MonoBehaviour
 
     private void OnEnable()
     {
-        Events.OnKeyCollected += CheckIfShouldOpenDoor;
+        Events.OnKeyCollected += CheckIfCanOpenDoor;
     }
 
     private void OnDisable()
     {
-        Events.OnKeyCollected -= CheckIfShouldOpenDoor;
+        Events.OnKeyCollected -= CheckIfCanOpenDoor;
     }
 
-    private void CheckIfShouldOpenDoor()
+    private void CheckIfCanOpenDoor()
     {
         Debug.Log("CheckIfShouldOpenDoor called");
 
