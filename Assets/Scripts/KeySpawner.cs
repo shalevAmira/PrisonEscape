@@ -29,6 +29,7 @@ public class KeySpawner : MonoBehaviour
         }
         else
         {
+            Events.OpenDoor?.Invoke();
             Events.AnnounceUpdateWithColor?.Invoke("You collected all the keys! you can now escape!", Color.green);
         }
     }
@@ -41,15 +42,5 @@ public class KeySpawner : MonoBehaviour
     private void OnDestroy()
     {
         Events.OnKeyCollected -= KeyCollected;
-    }
-
-    public int GetCollectedKeyCount()
-    {
-        return keysCollected;
-    }
-
-    public int GetTotalKeyCount()
-    {
-        return possibleSpawnPoints.Count;
     }
 }

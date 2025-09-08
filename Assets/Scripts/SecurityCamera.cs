@@ -39,13 +39,4 @@ public class SecurityCamera : MonoBehaviour
                 movingPositive = true;
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Player detected by camera!");
-            Events.OnPlayerDetected?.Invoke("SecurityCamera");
-        }
-    }
 }

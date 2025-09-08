@@ -62,7 +62,6 @@ public class PlayerMovement : MonoBehaviour
         Events.OnPlayerDetected += StopGame;
     }
 
-    // Update is called once per frame
     void Update()
     {
         HandleMovementAnimation();

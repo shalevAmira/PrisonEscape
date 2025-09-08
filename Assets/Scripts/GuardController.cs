@@ -2,11 +2,8 @@ using UnityEngine;
 
 public class GuardController : MonoBehaviour
 {
-    
-
     void Start()
     {
-        
         InvokeRepeating(nameof(Flip), UnityEngine.Random.Range(1, 5), 5f);
     }
 

@@ -10,7 +10,7 @@ public class Detector : MonoBehaviour
 {
     [SerializeField] private DetectorType detectorType;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {

@@ -5,58 +5,29 @@ public class DoorController : MonoBehaviour
     [SerializeField] private Sprite openDoorSprite;
     private SpriteRenderer spriteRenderer;
 
-    private void Awake()
+    private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable()
     {
-        Events.OnKeyCollected += CheckIfCanOpenDoor;
+        Events.OpenDoor += OpenDoor;
     }
 
     private void OnDisable()
     {
-        Events.OnKeyCollected -= CheckIfCanOpenDoor;
+        Events.OpenDoor -= OpenDoor;
     }
-
-    private void CheckIfCanOpenDoor()
-    {
-        Debug.Log("CheckIfShouldOpenDoor called");
-
-        KeySpawner keySpawner = Object.FindFirstObjectByType<KeySpawner>();
-
-        if (keySpawner == null)
-        {
-            Debug.LogError("KeySpawner not in the scene!");
-            return;
-        }
-
-        int totalKeys = keySpawner.GetTotalKeyCount();
-        int collected = keySpawner.GetCollectedKeyCount();
-
-        Debug.Log($"Keys collected: {collected} / {totalKeys}");
-
-        if (collected >= totalKeys)
-        {
-            OpenDoor();
-        }
-    }
-
-
 
     private void OpenDoor()
     {
-        
         spriteRenderer.sprite = openDoorSprite;
-
         Collider2D doorCollider = GetComponent<Collider2D>();
         if (doorCollider != null)
         {
             doorCollider.isTrigger = true;
         }
-
-        Events.AnnounceUpdate?.Invoke("The door is now open. Escape quickly!");
     }
 }
 
