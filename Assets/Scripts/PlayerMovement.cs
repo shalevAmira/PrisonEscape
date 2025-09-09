@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     Animator animator;
     float movementDirectionX;
     bool isGrounded;
-    float thresholdGGround = 0.5f;
+    float thresholdGGround = 0.1f;
 
     private void Awake()
     {
